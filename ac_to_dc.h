@@ -3,10 +3,14 @@
 
 class FullyControlled {
     public:
-        FullyControlled();
+    FullyControlled();
     private:
-}
+};
 
-
+class HalfControlled {
+    public:
+    HalfControlled();
+    private:
+};
 
 #endif // AC_TO_DC_H
