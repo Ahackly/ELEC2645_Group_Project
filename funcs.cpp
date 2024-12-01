@@ -2,7 +2,7 @@
 #include <iostream>
 
 #include "funcs.h"
-
+#include <regex>
 
 void menu_item_1() {
   std::cout << "\n>> Menu 1\n";
@@ -10,11 +10,10 @@ void menu_item_1() {
   // you can call a function from here that handles menu 1
 
 }
-void menu_item_2() {
-  std::cout << "\n>> Menu 2\n";
-  std::cout << "\nSome code here does something useful\n";
-  // you can call a function from here that handles menu 2
-
+void ac_to_dc() {
+  print_ac_to_dc_menu();
+  int input =  get_user_input2();
+  select_menu_item_2(input);
 }
 void menu_item_3() {
   std::cout << "\n>> Menu 3\n";
@@ -22,9 +21,4 @@ void menu_item_3() {
   // you can call a function from here that handles menu 3
 
 }
-void menu_item_4() {
-  std::cout << "\n>> Menu 4\n";
-  std::cout << "\nSome code here does something useful\n";
-  // you can call a function from here that handles menu 4
 
-}
