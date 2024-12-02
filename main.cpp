@@ -136,12 +136,10 @@ int get_user_input2(){
 void select_menu_item_2(int input){
   switch (input) {
     case 1:
-      menu_item_1();
-      go_back_to_main();
+      rectifire_iput_parameters(1);
       break;
     case 2:
-      ac_to_dc();
-      go_back_to_main();
+      rectifire_iput_parameters(2);
       break;
     default:
       main_menu();
