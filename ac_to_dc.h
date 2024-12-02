@@ -4,29 +4,27 @@
 class FullyControlled {
     public:
     //Constructor
-    FullyControlled(float vs, float alpha, float load_resistance);
+    FullyControlled(float input_voltage, float alpha);
     
     float calculate_output_voltage();
     float calculate_power_factor();
     
     private:
-        float _vs; //input voltage
-        float _vo; //output voltage
+        float _input_voltage; //input voltage
         float _alpha; //delay angle
-        float _load_resistance;
-        float _pf; //power factor
 };
 
 class HalfControlled {
     public:
     //Constructor
-    HalfControlled(float vs, float alpha, float load_resistance);
+    HalfControlled(float input_voltage, float alpha);
+
+    float calculate_output_voltage();
+    float calculate_power_factor();
+
     private:
-        float _vs; //input voltage
-        float _vo; //output voltage
+        float _input_voltage; //input voltage
         float _alpha; //delay angle
-        float _load_resistance;
-        float _pf; //power factor
 };
 
 #endif // AC_TO_DC_H
