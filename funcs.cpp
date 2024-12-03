@@ -57,7 +57,7 @@ void converter_input_parameters(int converter_option){
       std::cout << "Invalid: Enter a real number (ℝ)\n";
     } else{
       valid_input = true;
-      switching_frequency = std::stof(user_string);
+      input_voltage = std::stof(user_string);
     }
     }while(!valid_input);
 
@@ -70,7 +70,7 @@ void converter_input_parameters(int converter_option){
       std::cout << "Invalid: Enter a real number (ℝ)\n";
     } else{
       valid_input = true;
-      switching_frequency = std::stof(user_string);
+      output_voltage = std::stof(user_string);
     }
     }while(!valid_input);
 
@@ -83,7 +83,7 @@ void converter_input_parameters(int converter_option){
       std::cout << "Invalid: Enter a real number (ℝ)\n";
     } else{
       valid_input = true;
-      switching_frequency = std::stof(user_string);
+      current_ripple = std::stof(user_string);
     }
     }while(!valid_input);
 
@@ -96,7 +96,20 @@ void converter_input_parameters(int converter_option){
       std::cout << "Invalid: Enter a real number (ℝ)\n";
     } else{
       valid_input = true;
-      switching_frequency = std::stof(user_string);
+      voltage_ripple = std::stof(user_string);
+    }
+    }while(!valid_input);
+
+    valid_input = false;
+
+  do{
+    std::cout << "Enter load resistance(Ω): ";
+    std::cin >> user_string;
+    if(!isFloat(user_string)){
+      std::cout << "Invalid: Enter a real number (ℝ)\n";
+    } else{
+      valid_input = true;
+      load_resistance = std::stof(user_string);
     }
     }while(!valid_input);
 

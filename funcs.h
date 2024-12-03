@@ -8,5 +8,7 @@ void converter_input_parameters(int converter_option);
 void buck_converter(float switching_frequency, float input_voltage, float output_voltage, float current_ripple, float voltage_ripple);
 void boost_converter(float switching_frequency, float input_voltage, float output_voltage, float current_ripple, float voltage_ripple, float load_resistance);
 void final_results(float duty_ratio, float inductor_value, int capacitor_value, int converter_option);
+bool isFloat(const std::string& input);
+
 
 #endif
