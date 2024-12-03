@@ -25,7 +25,7 @@ void menu_item_3() {
 
 void converter_input_parameters(int converter_option){
   std::string user_string;
-  float switching_frequency, input_voltage, output_voltage, current_ripple, voltage_ripple, duty_ratio, inductor_value, capacitor_value;
+  float switching_frequency, input_voltage, output_voltage, current_ripple, voltage_ripple, load_resistance, duty_ratio, inductor_value, capacitor_value;
   bool valid_input = false;
   switch(converter_option){
     case 1:
@@ -108,8 +108,80 @@ void converter_input_parameters(int converter_option){
       case 2:
       do{
       std::cout << "Enter load_resistance (Ohms): ";
-      std::cin >> input_string;
+      std::cin >> user_string;
 
-      if(!isFloat(input_string)){
-        std::cout << "Enter a float!!!!\n";
+      if(!isFloat(user_string)){
+        std::cout << "Invalid: Enter a real number (ℝ\n";
+      } else{
+
+        load_resistance = std::stof(user_string);
+        if(load_resistance < 0){
+          std::cout << "Load Resistance must be positive\n";
+        } else {
+          valid_input = true;
+        }
       }
+    }while(!valid_input);
+    break;
+    }
+
+  switch(converter_option){
+    case 1:
+    buck_converter(switching_frequency, input_voltage, output_voltage, current_ripple, voltage_ripple);
+    buck_converter(duty_ratio, inductor_value, capacitor_value);
+    break;
+    case 2:
+    boost_converter(switching_frequency, input_voltage, output_voltage, current_ripple, voltage_ripple, load_resistance);
+    boost_converter(duty_ratio, inductor_value, capacitor_value);
+    break;
+  }
+  //output results
+  output_results(duty_ratio, inductor_value, capacitor_value);
+}
+
+void buck_converter(float switching_frequency, float input_voltage, float output_voltage, float current_ripple, float voltage_ripple, float duty_ratio, float inductor_value, float capacitor_value){
+  BuckConverter converter(switching_frequency, input_voltage, output_voltage, current_ripple, voltage_ripple);
+  duty_ratio = converter.calculate_duty_ratio();
+  inductor_value = converter.calculate_inductor_value();
+  capacitor_value = converter.calculate_capacitor_value();
+
+}
+
+void boost_converter(float switching_frequency, float input_voltage, float output_voltage, float current_ripple, float voltage_ripple, float duty_ratio, float inductor_value, float capacitor_value){
+  BoostConverter converter(switching_frequency, input_voltage, output_voltage, current_ripple, voltage_ripple, load_resistance);
+  duty_ratio = converter.calculate_duty_ratio();
+  inductor_value = converter.calculate_inductor_value();
+  capacitor_value = converter.calculate_capacitor_value();
+}
+
+bool isFloat(const std::string& input) {
+    int dot_count = 0; // To track the number of decimal points
+    int digit_count = 0; // To ensure there is at least one digit
+
+    for (size_t i = 0; i < input.length(); ++i) {
+        char ch = input[i];
+
+        // Check for a sign at the beginning
+        if ((ch == '+' || ch == '-') && i == 0) {
+            continue;
+        }
+        // Check for digits
+        if (ch >= '0' && ch <= '9') {
+            ++digit_count;
+            continue;
+        }
+        // Check for a single decimal point
+        if (ch == '.') {
+            ++dot_count;
+            if (dot_count > 1) {
+                return false; // More than one dot is invalid
+            }
+            continue;
+        }
+        // Invalid character found
+        return false;
+    }
+
+    // Valid if there's at least one digit and at most one dot
+    return digit_count > 0 && dot_count <= 1;
+}
