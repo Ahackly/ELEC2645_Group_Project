@@ -13,7 +13,7 @@ void print_main_menu(); // output the main menu description
 int get_user_input(); // get a valid integer choice from the user input
 void select_menu_item(int input); // run the desired code based on the users choice
 void go_back_to_main(); // print message to prompt user to return to main menu
-bool is_integer(std::string num); // check input is 
+bool is_integer(std::string num); // check input is integer
 
 int main(int argc, char const *argv[]) {
   // this will run forever until we hit the exit(1); line in select_menu_item()
