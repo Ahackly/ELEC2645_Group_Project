@@ -1,5 +1,6 @@
 #include <string>
 #include <iostream>
+#include <regex>
 
 #include "funcs.h"
 #include "dc_to_dc.h"
@@ -120,7 +121,7 @@ void converter_input_parameters(int converter_option){
       break;
       case 2:
       do{
-      std::cout << "Enter load_resistance (Ohms): ";
+      std::cout << "Enter load_resistance (Ω): ";
       std::cin >> user_string;
 
       if(!isFloat(user_string)){
@@ -140,31 +141,29 @@ void converter_input_parameters(int converter_option){
 
   switch(converter_option){
     case 1:
-    buck_converter(switching_frequency, input_voltage, output_voltage, current_ripple, voltage_ripple);
-    buck_converter(duty_ratio, inductor_value, capacitor_value);
+    buck_converter(switching_frequency, input_voltage, output_voltage, current_ripple, voltage_ripple, &duty_ratio, &inductor_value, &capacitor_value);
     break;
     case 2:
-    boost_converter(switching_frequency, input_voltage, output_voltage, current_ripple, voltage_ripple, load_resistance);
-    boost_converter(duty_ratio, inductor_value, capacitor_value);
+    boost_converter(switching_frequency, input_voltage, output_voltage, current_ripple, voltage_ripple, load_resistance, &duty_ratio, &inductor_value, &capacitor_value);
     break;
   }
   //output results
-  output_results(duty_ratio, inductor_value, capacitor_value);
+  final_results(duty_ratio, inductor_value, capacitor_value, converter_option);
 }
 
-void buck_converter(float switching_frequency, float input_voltage, float output_voltage, float current_ripple, float voltage_ripple, float duty_ratio, float inductor_value, float capacitor_value){
+void buck_converter(float switching_frequency, float input_voltage, float output_voltage, float current_ripple, float voltage_ripple, float* duty_ratio, float* inductor_value, float* capacitor_value){
   BuckConverter converter(switching_frequency, input_voltage, output_voltage, current_ripple, voltage_ripple);
-  duty_ratio = converter.calculate_duty_ratio();
-  inductor_value = converter.calculate_inductor_value();
-  capacitor_value = converter.calculate_capacitor_value();
+  *duty_ratio = converter.calculate_duty_ratio();
+  *inductor_value = converter.calculate_inductor_value();
+  *capacitor_value = converter.calculate_capacitor_value();
 
 }
 
-void boost_converter(float switching_frequency, float input_voltage, float output_voltage, float current_ripple, float voltage_ripple, float duty_ratio, float inductor_value, float capacitor_value){
+void boost_converter(float switching_frequency, float input_voltage, float output_voltage, float current_ripple, float voltage_ripple, float load_resistance, float* duty_ratio, float* inductor_value, float* capacitor_value){
   BoostConverter converter(switching_frequency, input_voltage, output_voltage, current_ripple, voltage_ripple, load_resistance);
-  duty_ratio = converter.calculate_duty_ratio();
-  inductor_value = converter.calculate_inductor_value();
-  capacitor_value = converter.calculate_capacitor_value();
+  *duty_ratio = converter.calculate_duty_ratio();
+  *inductor_value = converter.calculate_inductor_value();
+  *capacitor_value = converter.calculate_capacitor_value();
 }
 
 bool isFloat(const std::string& input) {
@@ -197,4 +196,14 @@ bool isFloat(const std::string& input) {
 
     // Valid if there's at least one digit and at most one dot
     return digit_count > 0 && dot_count <= 1;
+}
+
+void final_results(float duty_ratio, float inductor_value, float capacitor_value, int converter_option){
+  std::cout << "\n----------- Results ------------\n";
+  std::cout << "\n";
+  std::cout << "Duty Ratio = " << duty_ratio << " \n";
+  std::cout << "inductor = " << inductor_value << " H\n";
+  std::cout << "capacitor = " << capacitor_value << " C\n";
+  std::cout << "\n";
+  std::cout << "-----------------------------------------\n";
 }

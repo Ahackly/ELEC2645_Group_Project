@@ -1,3 +1,6 @@
+#ifndef DC_TO_DC_H
+#define DC_TO_DC_H
+
 class BuckConverter {
     public:
     //Constructor
@@ -32,3 +35,5 @@ class BoostConverter {
         float _voltage_ripple;
         float _load_resistance;
 };
+
+#endif

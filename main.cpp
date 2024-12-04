@@ -8,11 +8,8 @@
 
 void main_menu(); // runs in the main loop
 void print_main_menu(); // output the main menu description
-void print_dc_dc_menu();
 int get_user_input(); // get a valid integer choice from the user input
-int get_user_input_dc_dc();
 void select_menu_item(int input); // run the desired code based on the users choice
-void select_menu_item_dc_dc(int input);
 void go_back_to_main(); // print message to prompt user to return to main menu
 bool is_integer(std::string num); // check input is 
 
@@ -97,7 +94,7 @@ void go_back_to_main() {
   } while (input != "b" && input != "B");
 }
 
-void print_dc_to_dc_menu(){
+void print_dc_dc_menu(){
    std::cout << "\n-------- AC-DC Converter --------\n";
   std::cout << "|\t\t\t\t|\n";
   std::cout << "|\t1. Buck Conveter\t|\n";
@@ -132,6 +129,20 @@ int get_user_input_dc_dc(){
   } while (valid_input == false);
 
   return input;
+}
+
+void select_menu_item_dc_dc(int input){
+  switch (input) {
+    case 1:
+      converter_input_parameters(1);
+      break;
+    case 2:
+      converter_input_parameters(2);
+      break;
+    default:
+      main_menu();
+      break;
+  }
 }
 
 // https://codereview.stackexchange.com/questions/162569/checking-if-each-char-in-a-string-is-a-decimal-digit
