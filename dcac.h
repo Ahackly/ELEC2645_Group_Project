@@ -19,7 +19,8 @@ class DCAC {
     // Accessors
     float get_Vi();
     float get_ma();
-    float get_efficiency();
+    float get_bi_efficiency();
+    float get_uni_efficiency();
     float get_f();
     float get_L();
     float get_VAB();

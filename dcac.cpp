@@ -13,7 +13,6 @@ void sub_menu_item_1() {
   std::cout << "\n>> This is a bipolar DC-AC Inverter.\n";
   std::cout << "\nSome code here does something useful\n";
   DCAC bipolar;
-  bipolar.set_L();
   // you can call a function from here that handles menu 1
 }
 void sub_menu_item_2() {
@@ -213,6 +212,30 @@ void DCAC::set_L() {
     }
   } while (valid_input == false);
   _L = L;
+}
+
+float DCAC::get_Vi() {
+  return _Vi;
+}
+
+float DCAC::get_ma() {
+  return _ma;
+}
+
+float DCAC::get_bi_efficiency() {
+  return _bi_efficiency;
+}
+
+float DCAC::get_uni_efficiency() {
+  return _uni_efficiency;
+}
+
+float DCAC::get_f() {
+  return _f;
+}
+
+float DCAC::get_L() {
+  return _L;
 }
 
 // https://stackoverflow.com/questions/12643009/regular-expression-for-floating-point-numbers
