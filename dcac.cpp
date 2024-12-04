@@ -393,14 +393,24 @@ float DCAC::get_theta() {
   float angle = (Xf * _Io) / (_Vo);
   theta = atan(angle) * (180 / PI);
   _theta = theta;
-  return _theta;
+  if (_Vo != 0) {
+    return _theta;
+  }
+  else {
+    return 1.0/0.0;
+  }
 }
 
 float DCAC::get_R() {
   float R;
   R = _Vo / _Io;
   _R = R;
-  return _R;
+  if (_Io != 0) {
+    return _R;
+  }
+  else {
+    return 1.0/0.0;
+  }
 }
 
 float DCAC::get_P() {
