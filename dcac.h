@@ -3,8 +3,14 @@
 
 #define PI 3.14159265
 
-int polarity_choice(); // Choose a valid input
-void select_sub_menu_item(int input); // run the desired code based on the users choice
+int polarity_choice(); // Choose a valid input for sub-menu
+void select_sub_menu_item(int sub_input); // run the desired sub-menu based on the users choice
+int input_choice(); // Choose a valid input value
+void change_bi_input_value(int val_input); // Change the chosen value for bipolar inverter
+void change_uni_input_value(int val_input); // Change the chosen value for unipolar inverter
+void bi_display(); // prints bipolar inverter display
+void uni_display(); // prints unipolar inverter display
+void exit_inverter(); // Exits to sub-menu display
 
 class DCAC {
     public:
@@ -27,6 +33,7 @@ class DCAC {
     float get_Io();
     float get_R();
     float get_P();
+    float get_theta();
     private:
     float _Vi = 450;
     float _ma = 0.75;
@@ -38,6 +45,7 @@ class DCAC {
     float _Io;
     float _R;
     float _P;
+    float _theta;
 };
 
 #endif
