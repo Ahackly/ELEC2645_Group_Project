@@ -11,10 +11,11 @@ class DCAC {
     DCAC(); // Constructor
     // Mutators
     void set_Vi();
-    void set_ma(float ma);
-    void set_efficiency(float efficiency);
-    void set_f(float f);
-    void set_L(float L);
+    void set_ma();
+    void set_bi_efficiency();
+    void set_uni_efficiency();
+    void set_f();
+    void set_L();
     // Accessors
     float get_Vi();
     float get_ma();
@@ -29,7 +30,8 @@ class DCAC {
     private:
     float _Vi = 450;
     float _ma = 0.75;
-    float _efficiency = 95;
+    float _bi_efficiency = 85;
+    float _uni_efficiency = 95;
     float _f = 50;
     float _L = 50;
 };
