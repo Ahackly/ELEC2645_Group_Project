@@ -3,7 +3,7 @@
 
 #define PI 3.14159265
 
-int polarity_choice();
+int polarity_choice(); // Choose a valid input
 void select_sub_menu_item(int input); // run the desired code based on the users choice
 
 class DCAC {
@@ -19,8 +19,7 @@ class DCAC {
     // Accessors
     float get_Vi();
     float get_ma();
-    float get_bi_efficiency();
-    float get_uni_efficiency();
+    float get_efficiency();
     float get_f();
     float get_L();
     float get_VAB();
@@ -31,10 +30,14 @@ class DCAC {
     private:
     float _Vi = 450;
     float _ma = 0.75;
-    float _bi_efficiency = 85;
-    float _uni_efficiency = 95;
+    float _efficiency = 85;
     float _f = 50;
     float _L = 50;
+    float _VAB;
+    float _Vo;
+    float _Io;
+    float _R;
+    float _P;
 };
 
 #endif

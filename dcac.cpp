@@ -1,5 +1,6 @@
 #include <string>
 #include <iostream>
+#include <cmath>
 #include <regex> // needed to parse inputs
 
 #include "dcac.h"
@@ -64,7 +65,7 @@ void select_sub_menu_item(int subinput) {
   }
 }
 
-
+// DCAC class mutators and accessors
 void DCAC::set_Vi() {
   float Vi;
   std::string Vi_string;
@@ -135,7 +136,7 @@ void DCAC::set_bi_efficiency() {
         }
     }
   } while (valid_input == false);
-  _bi_efficiency = efficiency;
+  _efficiency = efficiency;
 }
 
 void DCAC::set_uni_efficiency() {
@@ -160,7 +161,7 @@ void DCAC::set_uni_efficiency() {
         }
     }
   } while (valid_input == false);
-  _uni_efficiency = efficiency;
+  _efficiency = efficiency;
 }
 
 void DCAC::set_f() {
@@ -222,12 +223,8 @@ float DCAC::get_ma() {
   return _ma;
 }
 
-float DCAC::get_bi_efficiency() {
-  return _bi_efficiency;
-}
-
-float DCAC::get_uni_efficiency() {
-  return _uni_efficiency;
+float DCAC::get_efficiency() {
+  return _efficiency;
 }
 
 float DCAC::get_f() {
@@ -236,6 +233,45 @@ float DCAC::get_f() {
 
 float DCAC::get_L() {
   return _L;
+}
+
+float DCAC::get_VAB() {
+  float VAB;
+  VAB = (_Vi * _ma) / sqrt(2);
+  _VAB = VAB;
+  return _VAB;
+}
+
+float DCAC::get_Vo() {
+  float Vo;
+  Vo = _VAB * _efficiency;
+  _Vo = Vo;
+  return _Vo;
+}
+
+float DCAC::get_Io() {
+  float Io;
+  float sqr_Vo = pow(_Vo, 2);
+  float sqr_VAB = pow(_VAB, 2);
+  float Xf = 2 * PI * _L * _f;
+  float sqr_Xf = pow(Xf, 2);
+  Io = sqrt((sqr_VAB - sqr_Vo) / sqr_Xf);
+  _Io = Io;
+  return _Io;
+}
+
+float DCAC::get_R() {
+  float R;
+  R = _Vo / _Io;
+  _R = R;
+  return _R;
+}
+
+float DCAC::get_P() {
+  float P;
+  P = _Vo * _Io;
+  _P = P;
+  return _P;
 }
 
 // https://stackoverflow.com/questions/12643009/regular-expression-for-floating-point-numbers
