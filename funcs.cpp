@@ -38,19 +38,23 @@ void converter_input_parameters(int converter_option){
 }
     std::cout << "\n";
 
-  do{
-    std::cout << "Enter switching frequency(Hz): ";
+  do {
+    std::cout << "Enter switching frequency (Hz): ";
     std::cin >> user_string;
-    if(!isFloat(user_string)){
-      std::cout << "Invalid: Enter a real number (ℝ)\n";
-    } else{
-      valid_input = true;
-      switching_frequency = std::stof(user_string);
-    }
-    }while(!valid_input);
 
-    valid_input = false;
-  
+    if (!isFloat(user_string)) {
+        std::cout << "Invalid: Enter a real number (R)\n";
+    } else {
+        switching_frequency = std::stof(user_string);
+
+        if (switching_frequency < 1000) {
+            std::cout << "Invalid: Switching frequency must be at least 1000 Hz.\n";
+        } else {
+            valid_input = true;
+        }
+    }
+} while (!valid_input);
+
   do{
     std::cout << "Enter input voltage(V)): ";
     std::cin >> user_string;
