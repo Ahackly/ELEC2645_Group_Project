@@ -66,8 +66,8 @@ void rectifire_iput_parameters(int rec_type){
 
       //check if alpha is in range
       alpha = std::stof(input_string);
-      if(alpha < 0 || alpha > 180){
-          std::cout << "angle alpha must be between 0 and 180\n";
+      if(alpha < 0 || alpha > 180 || alpha == 90){
+          std::cout << "angle alpha must be between 0 <= alpha < 90 < alpha <= 180\n";
         } else {
           valid_input = true;
         }

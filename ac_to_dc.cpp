@@ -15,7 +15,7 @@ float FullyControlled::calculate_output_voltage(){
 }
 
 float FullyControlled::calculate_power_factor(){
-    return 0.9* cos(_alpha);
+    return fabs(0.9* cos(_alpha));
 }
 
 HalfControlled::HalfControlled(float input_voltage, float alpha, float load_resistance){
@@ -36,5 +36,5 @@ float HalfControlled::calculate_power_factor(){
     float output_current = output_voltage / _load_resistance;
     float input_current = output_current * sqrt(1-(_alpha/PI));
     float output_power = output_current * output_current * _load_resistance;
-    return (output_power / (_input_voltage * input_current));
+    return fabs(output_power / (_input_voltage * input_current));
 }
