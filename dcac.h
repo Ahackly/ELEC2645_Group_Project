@@ -10,7 +10,6 @@ void change_bi_input_value(int val_input); // Change the chosen value for bipola
 void change_uni_input_value(int val_input); // Change the chosen value for unipolar inverter
 void bi_display(); // prints bipolar inverter display
 void uni_display(); // prints unipolar inverter display
-void exit_inverter(); // Exits to sub-menu display
 
 class DCAC {
     public:

@@ -26,9 +26,3 @@ void menu_item_3() {
   int subinput = polarity_choice(); // same as get_user_input function from main
   select_sub_menu_item(subinput); // same as select_menu_item function from main
 }
-void menu_item_4() {
-  std::cout << "\n>> Menu 4\n";
-  std::cout << "\nSome code here does something useful\n";
-  // you can call a function from here that handles menu 4
-
-}

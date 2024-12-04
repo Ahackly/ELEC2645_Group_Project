@@ -116,7 +116,6 @@ void change_bi_input_value(int val_input) {
       break;
     case 4:
       bipolar.set_f();
-      sub_menu_item_2();
       break;
     case 5:
       bipolar.set_L();
@@ -161,7 +160,6 @@ void change_uni_input_value(int val_input) {
       break;
     case 4:
       unipolar.set_f();
-      sub_menu_item_2();
       break;
     case 5:
       unipolar.set_L();
@@ -173,7 +171,6 @@ void change_uni_input_value(int val_input) {
 }
 
 // Unipolar Display
-// Bipolar sub-menu display
 void uni_display() {
   unipolar.get_VAB();
   unipolar.get_Vo();
@@ -364,6 +361,7 @@ float DCAC::get_L() {
   return _L;
 }
 
+// https://www.w3schools.com/cpp/cpp_ref_math.asp
 float DCAC::get_VAB() {
   float VAB;
   VAB = (_Vi * _ma) / sqrt(2);
