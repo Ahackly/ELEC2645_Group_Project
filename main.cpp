@@ -10,8 +10,6 @@
 
 void main_menu(); // runs in the main loop
 void print_main_menu(); // output the main menu description
-void print_new_main();
-
 int get_user_input(); // get a valid integer choice from the user input
 void select_menu_item(int input); // run the desired code based on the users choice
 void go_back_to_main(); // print message to prompt user to return to main menu
@@ -26,7 +24,7 @@ int main(int argc, char const *argv[]) {
 }
 
 void main_menu() {
-  print_new_main();
+  print_main_menu();
   int input = get_user_input();
   select_menu_item(input);
 }
@@ -80,34 +78,25 @@ void select_menu_item(int input) {
 }
 
 void print_main_menu() {
-  std::cout << "\n------------------ Main Menu --------------------\n|";
-  std::cout << "\t\t\t\t\t\t|\n|\t\t1. DC-DC Converter\t\t|\n|";
-  std::cout << "\t\t\t\t\t\t|\n|\t\t2. AC-DC Rectifier\t\t|\n|";
-  std::cout << "\t\t\t\t\t\t|\n|\t\t3. DC-AC Inverter\t\t|\n|";
-  std::cout << "\t\t\t\t\t\t|\n|\t\t4. Exit\t\t\t\t|\n|";
-  std::cout << "\t\t\t\t\t\t|\n-------------------------------------------------\n";
-}
-
-void print_new_main() {
-std::cout << "                              .                                                                                   .                   " << std::endl;
-std::cout << "                             --                                                                                  --                   " << std::endl;
-std::cout << "                           :==                                                                                 :==                    " << std::endl;
-std::cout << "                         .-:-                                                                                .-:-                     " << std::endl;
-std::cout << "                       .-..-                                                                               .-..-                      " << std::endl;
-std::cout << "                     .-:..-               -------------------- Main Menu -------------------             .-:..-                       " << std::endl;
-std::cout << "                   .-:...-                |                                                |           .-:...-                        " << std::endl;
-std::cout << "                  ::....::...........     |               1. DC-DC Converter               |          ::....::...........             " << std::endl;
-std::cout << "                :::..............:--      |                                                |        :::..............:--              " << std::endl;
-std::cout << "              :-:...............-:        |               2. AC-DC Rectifier               |      :-:...............-:                " << std::endl;
-std::cout << "             :::::::::::::....:-          |                                                |     :::::::::::::....:-                  " << std::endl;
-std::cout << "                        -:..:-.           |               3. DC-AC Inverter                |                -:..:-.                   " << std::endl;
-std::cout << "                      .-..--              |                                                |              .-..--                      " << std::endl;
-std::cout << "                     :-:-:                |               4. Exit                          |             :-:-:                        " << std::endl;
-std::cout << "                    =---                  |                                                |            =---                          " << std::endl;
-std::cout << "                  .-=-                    --------------------------------------------------          .-=-                            " << std::endl;
-std::cout << "                 .=-                                                                                 .=-                              " << std::endl;
-std::cout << "                ::                                                                                  ::                                " << std::endl;
-std::cout << "               .                                                                                   .                                  " << std::endl;
+  std::cout << "                              .                                                                                   .                   " << std::endl;
+  std::cout << "                             --                                                                                  --                   " << std::endl;
+  std::cout << "                           :==                                                                                 :==                    " << std::endl;
+  std::cout << "                         .-:-                                                                                .-:-                     " << std::endl;
+  std::cout << "                       .-..-                                                                               .-..-                      " << std::endl;
+  std::cout << "                     .-:..-               -------------------- Main Menu -------------------             .-:..-                       " << std::endl;
+  std::cout << "                   .-:...-                |                                                |           .-:...-                        " << std::endl;
+  std::cout << "                  ::....::...........     |               1. DC-DC Converter               |          ::....::...........             " << std::endl;
+  std::cout << "                :::..............:--      |                                                |        :::..............:--              " << std::endl;
+  std::cout << "              :-:...............-:        |               2. AC-DC Rectifier               |      :-:...............-:                " << std::endl;
+  std::cout << "             :::::::::::::....:-          |                                                |     :::::::::::::....:-                  " << std::endl;
+  std::cout << "                        -:..:-.           |               3. DC-AC Inverter                |                -:..:-.                   " << std::endl;
+  std::cout << "                      .-..--              |                                                |              .-..--                      " << std::endl;
+  std::cout << "                     :-:-:                |               4. Exit                          |             :-:-:                        " << std::endl;
+  std::cout << "                    =---                  |                                                |            =---                          " << std::endl;
+  std::cout << "                  .-=-                    --------------------------------------------------          .-=-                            " << std::endl;
+  std::cout << "                 .=-                                                                                 .=-                              " << std::endl;
+  std::cout << "                ::                                                                                  ::                                " << std::endl;
+  std::cout << "               .                                                                                   .                                  " << std::endl;
 }
 
 void go_back_to_main() {
