@@ -41,13 +41,13 @@ int get_user_input() {
     valid_input = is_integer(input_string);
     // if input is not an integer, print an error message
     if (valid_input == false) {
-      std::cout << "Enter an integer!\n";
+      std::cout << "\nEnter an integer!\n";
     } else {  // if it is an int, check whether in range
       input = std::stoi(input_string);  // convert to int
       if (input >= 1 && input <= menu_items) {
         valid_input = true;
       } else {
-        std::cout << "Invalid menu item!\n";
+        std::cout << "\nInvalid menu item!\n";
         valid_input = false;
       }
     }

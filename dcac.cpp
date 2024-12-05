@@ -133,17 +133,17 @@ void bi_display() {
   bipolar.get_Io();
   bipolar.get_L();
   bipolar.get_theta();
-  std::cout << "\n-------------------------------------------------------Inputs--------------------------------------------------------\n";
-  std::cout << "\n1. Vi = " << bipolar.get_Vi() << "V\t2. ma = " << bipolar.get_ma() << "\t3. Efficiency = "
+  std::cout << "\n--------------------------------------------------------------Inputs----------------------------------------------------------------\n";
+  std::cout << "\n1. Vi = " << bipolar.get_Vi() << "V\t2. Modulation Index = " << bipolar.get_ma() << "\t3. Efficiency = "
             << bipolar.get_efficiency() << "%\t4. Frequency = " << bipolar.get_f() << "Hz\t 5. Inductor = "
             << bipolar.get_L() << "mH\t6. Main Menu\n";
-  std::cout << "\n-------------------------------------------------------Outputs-------------------------------------------------------\n";
+  std::cout << "\n--------------------------------------------------------------Outputs---------------------------------------------------------------\n";
   std::cout << "\n vo(t) = " << bipolar.get_Vo()*sqrt(2) << " sin(" << 2*PI*bipolar.get_f() << "t - "
             << bipolar.get_theta() << ")\n";
   std::cout << "\n Io = " << bipolar.get_Io() << " A\n";
   std::cout << "\n R = " << bipolar.get_R() << " Ohm(s)\n";
   std::cout << "\n P = " << bipolar.get_P() << " W\n";
-  std::cout << "\n---------------------------------------------------------------------------------------------------------------------\n";
+  std::cout << "\n------------------------------------------------------------------------------------------------------------------------------------\n";
 }
 
 // Unipolar values
@@ -177,17 +177,17 @@ void uni_display() {
   unipolar.get_Io();
   unipolar.get_L();
   unipolar.get_theta();
-  std::cout << "\n-------------------------------------------------------Inputs--------------------------------------------------------\n";
-  std::cout << "\n1. Vi = " << unipolar.get_Vi() << "V\t2. ma = " << unipolar.get_ma() << "\t3. Efficiency = "
+  std::cout << "\n--------------------------------------------------------------Inputs----------------------------------------------------------------\n";
+  std::cout << "\n1. Vi = " << unipolar.get_Vi() << "V\t2. Modulation Index = " << unipolar.get_ma() << "\t3. Efficiency = "
             << unipolar.get_efficiency() << "%\t4. Frequency = " << unipolar.get_f() << "Hz\t 5. Inductor = "
             << unipolar.get_L() << "mH\t6. Main Menu\n";
-  std::cout << "\n-------------------------------------------------------Outputs-------------------------------------------------------\n";
+  std::cout << "\n--------------------------------------------------------------Outputs---------------------------------------------------------------\n";
   std::cout << "\n vo(t) = " << unipolar.get_Vo()*sqrt(2) << " sin(" << 2*PI*unipolar.get_f() << "t - "
             << unipolar.get_theta() << ")\n";
   std::cout << "\n Io = " << unipolar.get_Io() << " A\n";
   std::cout << "\n R = " << unipolar.get_R() << " Ohm(s)\n";
   std::cout << "\n P = " << unipolar.get_P() << " W\n";
-  std::cout << "\n---------------------------------------------------------------------------------------------------------------------\n";
+  std::cout << "\n------------------------------------------------------------------------------------------------------------------------------------\n";
 }
 
 // DCAC class input mutators
