@@ -190,7 +190,7 @@ void uni_display() {
   std::cout << "\n---------------------------------------------------------------------------------------------------------------------\n";
 }
 
-// DCAC class mutators and accessors
+// DCAC class input mutators
 void DCAC::set_Vi() {
   float Vi;
   std::string Vi_string;
@@ -341,6 +341,7 @@ void DCAC::set_L() {
   _L = L;
 }
 
+// DCAC class accessors
 float DCAC::get_Vi() {
   return _Vi;
 }
