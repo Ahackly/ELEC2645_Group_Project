@@ -1,6 +1,6 @@
 #ifndef FUNCS_H
 #define FUNCS_H
-
+//Define functions of the DC-DC program
 void dc_to_dc();
 void menu_item_2();
 void menu_item_3();
@@ -11,7 +11,7 @@ void converter_input_parameters(int converter_option);
 void buck_converter(float switching_frequency, float input_voltage, float output_voltage, float current_ripple, float voltage_ripple, float* duty_ratio, float* inductor_value, float* capacitor_value);
 void boost_converter(float switching_frequency, float input_voltage, float output_voltage, float current_ripple, float voltage_ripple, float resistance_value, float* duty_ratio, float* inductor_value, float* capacitor_value);
 void final_results(float duty_ratio, float inductor_value, float capacitor_value, int converter_option);
-bool isFloat(const std::string& input);
+bool isFloat(const std::string& input); //Function to check if the string is a float
 
 
 #endif

@@ -74,7 +74,7 @@ void select_menu_item(int input) {
       break;
   }
 }
-
+// Prints the main menu
 void print_main_menu() {
   std::cout << "                              .                                                                                   .                   " << std::endl;
   std::cout << "                             --                                                                                  --                   " << std::endl;
@@ -105,16 +105,16 @@ void go_back_to_main() {
   } while (input != "b" && input != "B");
 }
 
+//Prints DC-DC converter menu
 void print_dc_dc_menu(){
-   std::cout << "\n-------- DC-DC- Converter --------\n";
-  std::cout << "|\t\t\t\t|\n";
-  std::cout << "|\t1. Buck Converter\t|\n";
-  std::cout << "|\t2. Boost Converter\t|\n";
-  std::cout << "|\t3. Return to main menu \t|\n";
-  std::cout << "|\t\t\t\t|\n";
-  std::cout << "---------------------------------\n";
+    std::cout << "\n----------- -DC-DC- Converter ------------\n|";
+  std::cout << "\t\t\t\t\t|\n|\t1. Buck Converter\t\t|\n|";
+  std::cout << "\t\t\t\t\t|\n|\t2. Boost Converter\t\t|\n|";
+  std::cout << "\t\t\t\t\t|\n|\t3. Return to Main Menu\t\t|\n|";
+  std::cout << "\t\t\t\t\t|\n-----------------------------------------\n";
 }
 
+//Prompts the user to select an item in the DC-DC menu
 int get_user_input_dc_dc(){
   int input;
   std::string input_string;
@@ -125,11 +125,10 @@ int get_user_input_dc_dc(){
     std::cout << "\nSelect item: ";
     std::cin >> input_string;
     valid_input = is_integer(input_string);
-    // if input is not an integer, print an error message
     if (valid_input == false) {
       std::cout << "Enter an integer!\n";
-    } else {  // if it is an int, check whether in range
-      input = std::stoi(input_string);  // convert to int
+    } else {
+      input = std::stoi(input_string);
       if (input >= 1 && input <= menu_items) {
         valid_input = true;
       } else {
@@ -145,10 +144,10 @@ int get_user_input_dc_dc(){
 void select_menu_item_dc_dc(int input){
   switch (input) {
     case 1:
-      converter_input_parameters(1);
+      converter_input_parameters(1); //Calls function for buck converter
       break;
     case 2:
-      converter_input_parameters(2);
+      converter_input_parameters(2); //Calls function for boost converter
       break;
     default:
       main_menu();
