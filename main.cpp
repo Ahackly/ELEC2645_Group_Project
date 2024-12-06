@@ -3,17 +3,17 @@
 
 #include <iostream>
 #include <regex> // needed to parse inputs
+#include <string>
 
 #include "funcs.h" // sub functions go in here
 
 
 void main_menu(); // runs in the main loop
 void print_main_menu(); // output the main menu description
-
 int get_user_input(); // get a valid integer choice from the user input
 void select_menu_item(int input); // run the desired code based on the users choice
 void go_back_to_main(); // print message to prompt user to return to main menu
-bool is_integer(std::string num); // check input is 
+bool is_integer(std::string num); // check input is integer
 
 int main(int argc, char const *argv[]) {
   // this will run forever until we hit the exit(1); line in select_menu_item()
@@ -41,13 +41,13 @@ int get_user_input() {
     valid_input = is_integer(input_string);
     // if input is not an integer, print an error message
     if (valid_input == false) {
-      std::cout << "Enter an integer!\n";
+      std::cout << "\nEnter an integer!\n";
     } else {  // if it is an int, check whether in range
       input = std::stoi(input_string);  // convert to int
       if (input >= 1 && input <= menu_items) {
         valid_input = true;
       } else {
-        std::cout << "Invalid menu item!\n";
+        std::cout << "\nInvalid menu item!\n";
         valid_input = false;
       }
     }

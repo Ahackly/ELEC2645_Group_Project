@@ -4,6 +4,8 @@
 
 #include "funcs.h"
 #include "ac_to_dc.h"
+#include "dcac.h" // dc-ac class
+
 
 
 void menu_item_1() {
@@ -169,4 +171,12 @@ void output_results(float output_voltage, float power_factor, int rec_type){
   std::cout << "Power Factor = " << power_factor << "\n";
   std::cout << "\n";
   std::cout << "-----------------------------------------\n";
+  
+  std::cout << "\n----------- -DC-AC~ Inverter ------------\n|";
+  std::cout << "\t\t\t\t\t|\n|\t1. Bipolar Switching\t\t|\n|";
+  std::cout << "\t\t\t\t\t|\n|\t2. Unipolar Switching\t\t|\n|";
+  std::cout << "\t\t\t\t\t|\n|\t3. Return to Main Menu\t\t|\n|";
+  std::cout << "\t\t\t\t\t|\n-----------------------------------------\n";
+  int subinput = polarity_choice(); // same as get_user_input function from main
+  select_sub_menu_item(subinput); // same as select_menu_item function from main
 }
