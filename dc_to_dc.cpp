@@ -51,13 +51,13 @@ float BuckConverter::calculate_capacitor_value() {
 }
 
 
-BoostConverter::BoostConverter(float switching_frequency, float input_voltage, float output_voltage, float current_ripple, float voltage_ripple, float load_resistance) {
+BoostConverter::BoostConverter(float switching_frequency, float input_voltage, float output_voltage, float current_ripple, float voltage_ripple, float resistance_value) {
     _switching_frequency = switching_frequency;
     _input_voltage = input_voltage;
     _output_voltage = output_voltage;
     _current_ripple = current_ripple;
     _voltage_ripple = voltage_ripple;
-    _load_resistance = load_resistance;
+    _resistance_value = resistance_value;
 }
 
 float BoostConverter::calculate_duty_ratio() {
@@ -83,5 +83,5 @@ float BoostConverter::calculate_capacitor_value() {
         std::cerr << "Error: Duty ratio calculation failed.\n";
         return 0.0f;
     }
-    return (_output_voltage * duty_ratio) / (_load_resistance * _switching_frequency * _voltage_ripple);
+    return (_output_voltage * duty_ratio) / (_resistance_value * _switching_frequency * _voltage_ripple);
 }

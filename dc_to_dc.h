@@ -21,7 +21,7 @@ class BuckConverter {
 class BoostConverter {
     public:
     //Constructor
-    BoostConverter(float switching_frequency, float input_voltage, float output_voltage, float current_ripple, float voltage_ripple, float load_resistance);
+    BoostConverter(float switching_frequency, float input_voltage, float output_voltage, float current_ripple, float voltage_ripple, float resistance_value);
 
     float calculate_duty_ratio();
     float calculate_inductor_value();
@@ -34,7 +34,7 @@ class BoostConverter {
         float _output_voltage;
         float _current_ripple;
         float _voltage_ripple;
-        float _load_resistance;
+        float _resistance_value;
 };
 
 #endif
