@@ -26,6 +26,7 @@ class BoostConverter {
     float calculate_duty_ratio();
     float calculate_inductor_value();
     float calculate_capacitor_value();
+    
 
     private:
         float _switching_frequency;

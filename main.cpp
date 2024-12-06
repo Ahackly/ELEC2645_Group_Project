@@ -76,14 +76,25 @@ void select_menu_item(int input) {
 }
 
 void print_main_menu() {
-  std::cout << "\n----------- Main menu -----------\n";
-  std::cout << "|\t\t\t\t|\n";
-  std::cout << "|\t1. DC-DC Converter\t|\n";
-  std::cout << "|\t2. Menu item 2\t\t|\n";
-  std::cout << "|\t3. Menu item 3\t\t|\n";
-  std::cout << "|\t4. Exit\t\t\t|\n";
-  std::cout << "|\t\t\t\t|\n";
-  std::cout << "---------------------------------\n";
+  std::cout << "                              .                                                                                   .                   " << std::endl;
+  std::cout << "                             --                                                                                  --                   " << std::endl;
+  std::cout << "                           :==                                                                                 :==                    " << std::endl;
+  std::cout << "                         .-:-                                                                                .-:-                     " << std::endl;
+  std::cout << "                       .-..-                                                                               .-..-                      " << std::endl;
+  std::cout << "                     .-:..-               -------------------- Main Menu -------------------             .-:..-                       " << std::endl;
+  std::cout << "                   .-:...-                |                                                |           .-:...-                        " << std::endl;
+  std::cout << "                  ::....::...........     |               1. DC-DC Converter               |          ::....::...........             " << std::endl;
+  std::cout << "                :::..............:--      |                                                |        :::..............:--              " << std::endl;
+  std::cout << "              :-:...............-:        |               2. AC-DC Rectifier               |      :-:...............-:                " << std::endl;
+  std::cout << "             :::::::::::::....:-          |                                                |     :::::::::::::....:-                  " << std::endl;
+  std::cout << "                        -:..:-.           |               3. DC-AC Inverter                |                -:..:-.                   " << std::endl;
+  std::cout << "                      .-..--              |                                                |              .-..--                      " << std::endl;
+  std::cout << "                     :-:-:                |               4. Exit                          |             :-:-:                        " << std::endl;
+  std::cout << "                    =---                  |                                                |            =---                          " << std::endl;
+  std::cout << "                  .-=-                    --------------------------------------------------          .-=-                            " << std::endl;
+  std::cout << "                 .=-                                                                                 .=-                              " << std::endl;
+  std::cout << "                ::                                                                                  ::                                " << std::endl;
+  std::cout << "               .                                                                                   .                                  " << std::endl;
 }
 
 void go_back_to_main() {
@@ -97,7 +108,7 @@ void go_back_to_main() {
 void print_dc_dc_menu(){
    std::cout << "\n-------- DC-DC- Converter --------\n";
   std::cout << "|\t\t\t\t|\n";
-  std::cout << "|\t1. Buck Conveter\t|\n";
+  std::cout << "|\t1. Buck Converter\t|\n";
   std::cout << "|\t2. Boost Converter\t|\n";
   std::cout << "|\t3. Return to main menu \t|\n";
   std::cout << "|\t\t\t\t|\n";

@@ -24,135 +24,103 @@ void menu_item_3() {
 
 }
 
-void converter_input_parameters(int converter_option){
-  std::string user_string;
-  float switching_frequency, input_voltage, output_voltage, current_ripple, voltage_ripple, load_resistance, duty_ratio, inductor_value, capacitor_value;
-  bool valid_input = false;
-  switch(converter_option){
-    case 1:
-    std::cout << "\n----------- Buck Converter -----------\n";
-    break;
-    case 2:
-    std::cout << "\n----------- Boost Converter ------------\n";
-    break;
-}
+void converter_input_parameters(int converter_option) {
+    std::string user_string;
+    float switching_frequency, input_voltage, output_voltage, current_ripple, voltage_ripple, load_resistance, duty_ratio, inductor_value, capacitor_value;
+    bool valid_input = false;
+
+    switch (converter_option) {
+        case 1:
+            std::cout << "\n----------- Buck Converter -----------\n";
+            break;
+        case 2:
+            std::cout << "\n----------- Boost Converter ------------\n";
+            break;
+    }
     std::cout << "\n";
 
-  do {
-    std::cout << "Enter switching frequency (Hz): ";
-    std::cin >> user_string;
+    do {
+        valid_input = true; // Assume valid unless proven otherwise
 
-    if (!isFloat(user_string)) {
-        std::cout << "Invalid: Enter a real number (R)\n";
-    } else {
-        switching_frequency = std::stof(user_string);
+        // Input parameters
+        std::cout << "Enter switching frequency (Hz) - Minimum: 1000Hz: ";
+        std::cin >> user_string;
+        if (!isFloat(user_string) || (switching_frequency = std::stof(user_string)) < 1000) {
+            std::cout << "Invalid: Enter a real number greater than or equal to 1000 Hz.\n";
+            valid_input = false;
+        }
 
-        if (switching_frequency < 1000) {
-            std::cout << "Invalid: Switching frequency must be at least 1000 Hz.\n";
+        if (valid_input) {
+            std::cout << "Enter input voltage (V): ";
+            std::cin >> user_string;
+            if (!isFloat(user_string)) {
+                std::cout << "Invalid: Enter a real number (R)\n";
+                valid_input = false;
+            } else {
+                input_voltage = std::stof(user_string);
+            }
+        }
+
+        if (valid_input) {
+            std::cout << "Enter output voltage (V): ";
+            std::cin >> user_string;
+            if (!isFloat(user_string)) {
+                std::cout << "Invalid: Enter a real number (R)\n";
+                valid_input = false;
+            } else {
+                output_voltage = std::stof(user_string);
+            }
+        }
+
+        if (valid_input && converter_option == 1 && input_voltage <= output_voltage) {
+            std::cout << "Error: For a buck converter, the input voltage must be greater than the output voltage.\n";
+            valid_input = false;
+        }
+
+    } while (!valid_input);
+
+    // Additional parameter inputs (unchanged)
+    do {
+        std::cout << "Enter output current ripple (%): ";
+        std::cin >> user_string;
+        if (!isFloat(user_string) || (current_ripple = std::stof(user_string)) < 0 || current_ripple > 100) {
+            std::cout << "Invalid: Output current ripple must be between 0% and 100%.\n";
         } else {
             valid_input = true;
         }
-    }
-} while (!valid_input);
+    } while (!valid_input);
 
-  do{
-    std::cout << "Enter input voltage(V)): ";
-    std::cin >> user_string;
-    if(!isFloat(user_string)){
-      std::cout << "Invalid: Enter a real number (ℝ)\n";
-    } else{
-      valid_input = true;
-      input_voltage = std::stof(user_string);
-    }
-    }while(!valid_input);
-
-    valid_input = false;
-
-  do{
-    std::cout << "Enter output voltage(V): ";
-    std::cin >> user_string;
-    if(!isFloat(user_string)){
-      std::cout << "Invalid: Enter a real number (ℝ)\n";
-    } else{
-      valid_input = true;
-      output_voltage = std::stof(user_string);
-    }
-    }while(!valid_input);
-
-    valid_input = false;
-  
-  do{
-    std::cout << "Enter ouput current ripple(%): ";
-    std::cin >> user_string;
-    if(!isFloat(user_string)){
-      std::cout << "Invalid: Enter a real number (ℝ)\n";
-    } else{
-      valid_input = true;
-      current_ripple = std::stof(user_string);
-    }
-    }while(!valid_input);
-
-    valid_input = false;
-
-  do{
-    std::cout << "Enter ouput voltage ripple(%): ";
-    std::cin >> user_string;
-    if(!isFloat(user_string)){
-      std::cout << "Invalid: Enter a real number (ℝ)\n";
-    } else{
-      valid_input = true;
-      voltage_ripple = std::stof(user_string);
-    }
-    }while(!valid_input);
-
-    valid_input = false;
-
-  do{
-    std::cout << "Enter load resistance(Ω): ";
-    std::cin >> user_string;
-    if(!isFloat(user_string)){
-      std::cout << "Invalid: Enter a real number (ℝ)\n";
-    } else{
-      valid_input = true;
-      load_resistance = std::stof(user_string);
-    }
-    }while(!valid_input);
-
-    valid_input = false;
-
-  switch(converter_option){
-      case 1:
-      break;
-      case 2:
-      do{
-      std::cout << "Enter load_resistance (Ω): ";
-      std::cin >> user_string;
-
-      if(!isFloat(user_string)){
-        std::cout << "Invalid: Enter a real number (ℝ\n";
-      } else{
-
-        load_resistance = std::stof(user_string);
-        if(load_resistance < 0){
-          std::cout << "Load Resistance must be positive\n";
+    do {
+        std::cout << "Enter output voltage ripple (%): ";
+        std::cin >> user_string;
+        if (!isFloat(user_string) || (voltage_ripple = std::stof(user_string)) < 0 || voltage_ripple > 100) {
+            std::cout << "Invalid: Output voltage ripple must be between 0% and 100%.\n";
         } else {
-          valid_input = true;
+            valid_input = true;
         }
-      }
-    }while(!valid_input);
-    break;
+    } while (!valid_input);
+
+    if (converter_option == 2) {
+        do {
+            std::cout << "Enter load resistance (Ohms): ";
+            std::cin >> user_string;
+            if (!isFloat(user_string) || (load_resistance = std::stof(user_string)) <= 0) {
+                std::cout << "Invalid: Load resistance must be a positive real number.\n";
+            } else {
+                valid_input = true;
+            }
+        } while (!valid_input);
     }
 
-  switch(converter_option){
-    case 1:
-    buck_converter(switching_frequency, input_voltage, output_voltage, current_ripple, voltage_ripple, &duty_ratio, &inductor_value, &capacitor_value);
-    break;
-    case 2:
-    boost_converter(switching_frequency, input_voltage, output_voltage, current_ripple, voltage_ripple, load_resistance, &duty_ratio, &inductor_value, &capacitor_value);
-    break;
-  }
-  //output results
-  final_results(duty_ratio, inductor_value, capacitor_value, converter_option);
+    // Call the respective converter functions
+    if (converter_option == 1) {
+        buck_converter(switching_frequency, input_voltage, output_voltage, current_ripple, voltage_ripple, &duty_ratio, &inductor_value, &capacitor_value);
+    } else if (converter_option == 2) {
+        boost_converter(switching_frequency, input_voltage, output_voltage, current_ripple, voltage_ripple, load_resistance, &duty_ratio, &inductor_value, &capacitor_value);
+    }
+
+    // Output results
+    final_results(duty_ratio, inductor_value, capacitor_value, converter_option);
 }
 
 void buck_converter(float switching_frequency, float input_voltage, float output_voltage, float current_ripple, float voltage_ripple, float* duty_ratio, float* inductor_value, float* capacitor_value){
