@@ -4,7 +4,6 @@
 #include <iostream>
 #include <regex> // needed to parse inputs
 #include <string>
-
 #include "funcs.h" // sub functions go in here
 
 
@@ -59,7 +58,7 @@ int get_user_input() {
 void select_menu_item(int input) {
   switch (input) {
     case 1:
-      menu_item_1();
+      dc_to_dc();
       go_back_to_main();
       break;
     case 2:
@@ -68,7 +67,6 @@ void select_menu_item(int input) {
       break;
     case 3:
       menu_item_3();
-      go_back_to_main();
       break;
     default:
       std::cout << "Bye!\n";
@@ -77,6 +75,7 @@ void select_menu_item(int input) {
   }
 }
 
+// Prints the main menu
 void print_main_menu() {
 std::cout << "                              .                                                                                   .                   " << std::endl;
 std::cout << "                             --                                                                                  --                   " << std::endl;
@@ -114,6 +113,15 @@ void print_ac_to_dc_menu(){
   std::cout << "\t\t\t\t\t|\n|\t3. Return to Main Menu\t\t|\n|";
   std::cout << "\t\t\t\t\t|\n-----------------------------------------\n";
 }
+//Prints DC-DC converter menu
+void print_dc_dc_menu(){
+  std::cout << "\n----------- -DC-DC- Converter -----------\n|";
+  std::cout << "\t\t\t\t\t|\n|\t1. Buck Converter\t\t|\n|";
+  std::cout << "\t\t\t\t\t|\n|\t2. Boost Converter\t\t|\n|";
+  std::cout << "\t\t\t\t\t|\n|\t3. Return to Main Menu\t\t|\n|";
+  std::cout << "\t\t\t\t\t|\n-----------------------------------------\n";
+}
+
 
 int get_user_input2(){
   int input;
@@ -137,6 +145,33 @@ int get_user_input2(){
         valid_input = false;
       }
     }
+  } while(valid_input == false);
+
+  return input;
+}
+  
+//Prompts the user to select an item in the DC-DC menu
+int get_user_input_dc_dc(){
+  int input;
+  std::string input_string;
+  bool valid_input = false;
+  int menu_items = 3;
+
+  do {
+    std::cout << "\nSelect item: ";
+    std::cin >> input_string;
+    valid_input = is_integer(input_string);
+    if (valid_input == false) {
+      std::cout << "Enter an integer!\n";
+    } else {
+      input = std::stoi(input_string);
+      if (input >= 1 && input <= menu_items) {
+        valid_input = true;
+      } else {
+        std::cout << "Invalid menu item!\n";
+        valid_input = false;
+      }
+    }
   } while (valid_input == false);
 
   return input;
@@ -149,6 +184,20 @@ void select_menu_item_2(int input){
       break;
     case 2:
       rectifire_iput_parameters(2);
+      break;
+    default:
+      main_menu();
+      break;
+  }
+}
+
+void select_menu_item_dc_dc(int input){
+  switch (input) {
+    case 1:
+      converter_input_parameters(1); //Calls function for buck converter
+      break;
+    case 2:
+      converter_input_parameters(2); //Calls function for boost converter
       break;
     default:
       main_menu();
