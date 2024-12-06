@@ -19,12 +19,7 @@ void ac_to_dc() {
   int input =  get_user_input2();
   select_menu_item_2(input);
 }
-void menu_item_3() {
-  std::cout << "\n>> Menu 3\n";
-  std::cout << "\nSome code here does something useful\n";
-  // you can call a function from here that handles menu 3
 
-}
 
 //This function gets input parameters and calls the right function and prints the results
 void rectifire_iput_parameters(int rec_type){
@@ -171,7 +166,9 @@ void output_results(float output_voltage, float power_factor, int rec_type){
   std::cout << "Power Factor = " << power_factor << "\n";
   std::cout << "\n";
   std::cout << "-----------------------------------------\n";
-  
+}
+
+void menu_item_3(){
   std::cout << "\n----------- -DC-AC~ Inverter ------------\n|";
   std::cout << "\t\t\t\t\t|\n|\t1. Bipolar Switching\t\t|\n|";
   std::cout << "\t\t\t\t\t|\n|\t2. Unipolar Switching\t\t|\n|";
