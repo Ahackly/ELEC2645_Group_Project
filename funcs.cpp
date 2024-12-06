@@ -14,12 +14,22 @@ void dc_to_dc() {
   select_menu_item_dc_dc(input);  // you can call a function from here that handles menu 1
 
 }
+//Function to handle DC-DC converter menu
 void ac_to_dc() {
   print_ac_to_dc_menu();
   int input =  get_user_input2();
   select_menu_item_2(input);
 }
-
+// Function to handle DC to AC inverter Sub-Menu
+void menu_item_3(){
+  std::cout << "\n----------- -DC-AC~ Inverter ------------\n|";
+  std::cout << "\t\t\t\t\t|\n|\t1. Bipolar Switching\t\t|\n|";
+  std::cout << "\t\t\t\t\t|\n|\t2. Unipolar Switching\t\t|\n|";
+  std::cout << "\t\t\t\t\t|\n|\t3. Return to Main Menu\t\t|\n|";
+  std::cout << "\t\t\t\t\t|\n-----------------------------------------\n";
+  int subinput = polarity_choice(); // same as get_user_input function from main
+  select_sub_menu_item(subinput); // same as select_menu_item function from main
+}
 
 //This function gets input parameters and calls the right function and prints the results
 void rectifire_iput_parameters(int rec_type){
@@ -168,15 +178,6 @@ void output_results(float output_voltage, float power_factor, int rec_type){
   std::cout << "-----------------------------------------\n";
 }
 
-void menu_item_3(){
-  std::cout << "\n----------- -DC-AC~ Inverter ------------\n|";
-  std::cout << "\t\t\t\t\t|\n|\t1. Bipolar Switching\t\t|\n|";
-  std::cout << "\t\t\t\t\t|\n|\t2. Unipolar Switching\t\t|\n|";
-  std::cout << "\t\t\t\t\t|\n|\t3. Return to Main Menu\t\t|\n|";
-  std::cout << "\t\t\t\t\t|\n-----------------------------------------\n";
-  int subinput = polarity_choice(); // same as get_user_input function from main
-  select_sub_menu_item(subinput); // same as select_menu_item function from main
-}
 //Function to get input parameters
 void converter_input_parameters(int converter_option) {
     std::string user_string;

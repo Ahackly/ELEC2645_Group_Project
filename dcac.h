@@ -3,6 +3,8 @@
 
 #define PI 3.14159265
 
+void sub_menu_item_1();
+void sub_menu_item_2();
 int polarity_choice(); // Choose a valid input for sub-menu
 void select_sub_menu_item(int sub_input); // run the desired sub-menu based on the users choice
 int input_choice(); // Choose a valid input value
