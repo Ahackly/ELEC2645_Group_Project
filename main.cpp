@@ -6,12 +6,11 @@
 #include <string>
 #include "funcs.h" // sub functions go in here
 
-
 void main_menu(); // runs in the main loop
+void go_back_to_main(); // print message to prompt user to return to main menu
 void print_main_menu(); // output the main menu description
 int get_user_input(); // get a valid integer choice from the user input
 void select_menu_item(int input); // run the desired code based on the users choice
-void go_back_to_main(); // print message to prompt user to return to main menu
 bool is_integer(std::string num); // check input is integer
 
 int main(int argc, char const *argv[]) {
@@ -67,6 +66,7 @@ void select_menu_item(int input) {
       break;
     case 3:
       menu_item_3();
+      go_back_to_main();
       break;
     default:
       std::cout << "Bye!\n";
@@ -186,7 +186,6 @@ void select_menu_item_2(int input){
       rectifire_iput_parameters(2);
       break;
     default:
-      main_menu();
       break;
   }
 }
@@ -200,7 +199,6 @@ void select_menu_item_dc_dc(int input){
       converter_input_parameters(2); //Calls function for boost converter
       break;
     default:
-      main_menu();
       break;
   }
 }

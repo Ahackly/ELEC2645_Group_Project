@@ -2,7 +2,6 @@
 #include <iostream>
 #include <cmath>
 #include <regex> // needed to parse inputs
-
 #include "dcac.h"
 
 // Global variables
@@ -13,6 +12,7 @@ DCAC unipolar;
 bool is_integer(std::string num); // check input is an integer
 bool is_float(std:: string num); // check input is a float
 
+// Strictly DC-AC
 void sub_menu_item_1() {
   int val_input;
   std::cout << "\nThis DC-AC inverter uses Bipolar PWM modulation to output an AC voltage\n";
@@ -69,7 +69,6 @@ void select_sub_menu_item(int subinput) {
       sub_menu_item_2();
       break;
     default:
-      std::cout << "\nReturning to Main Menu\n";
       break;
   }
 }
@@ -121,7 +120,6 @@ void change_bi_input_value(int val_input) {
       bipolar.set_L();
       break;
     default:
-      std::cout << "\nReturning to Main Menu\n";
       break;
   }
 }
@@ -165,7 +163,6 @@ void change_uni_input_value(int val_input) {
       unipolar.set_L();
       break;
     default:
-      std::cout << "\nReturning to Main Menu\n";
       break;
   }
 }
