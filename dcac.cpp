@@ -2,7 +2,6 @@
 #include <iostream>
 #include <cmath>
 #include <regex> // needed to parse inputs
-#include "main.h"
 #include "dcac.h"
 
 // Global variables

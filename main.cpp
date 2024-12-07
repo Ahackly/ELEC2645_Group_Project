@@ -5,8 +5,9 @@
 #include <regex> // needed to parse inputs
 #include <string>
 #include "funcs.h" // sub functions go in here
-#include "main.h"
 
+void main_menu(); // runs in the main loop
+void go_back_to_main(); // print message to prompt user to return to main menu
 void print_main_menu(); // output the main menu description
 int get_user_input(); // get a valid integer choice from the user input
 void select_menu_item(int input); // run the desired code based on the users choice
