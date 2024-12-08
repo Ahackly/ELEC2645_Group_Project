@@ -295,6 +295,7 @@ void converter_input_parameters(int converter_option) {
                 continue;
             } else {
             valid_input = true;
+            resistance_value = std::stof(user_string);
         }
         } while (!valid_input);
     }
